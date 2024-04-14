@@ -1,13 +1,26 @@
-import { Formik, Form, Field } from "formik";
 import { useId } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { ErrorMessage } from "formik";
-import css from "./ContactForm.module.css";
+import { nanoid } from "nanoid";
+
 import { LuUserPlus2 } from "react-icons/lu";
 import { RiContactsLine } from "react-icons/ri";
 import { FiPhone } from "react-icons/fi";
 
-const ContactForm = ({ handleSubmit }) => {
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contacts/contactsSlice.js";
+
+import css from "./ContactForm.module.css";
+
+const ContactForm = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (valuesFilds, actions) => {
+    const addIdContact = { id: nanoid(), ...valuesFilds };
+    dispatch(addContact(addIdContact));
+    actions.resetForm();
+  };
+
   const nameFieldId = useId();
   const numberFieldId = useId();
 

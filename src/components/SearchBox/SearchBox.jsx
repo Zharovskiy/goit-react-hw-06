@@ -1,7 +1,19 @@
-import css from "./SearchBox.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { changeFilter } from "../../redux/filters/filtersSlice.js";
+import { selectNameFilter } from "../../redux/filters/filtersSlice.js";
+
 import { TbSearch } from "react-icons/tb";
 
-const SearchBox = ({ searchValue, handleChange }) => {
+import css from "./SearchBox.module.css";
+
+const SearchBox = () => {
+  const dispatch = useDispatch();
+  const search = useSelector(selectNameFilter);
+
+  const handleChange = (event) => {
+    dispatch(changeFilter(event.target.value));
+  };
+
   return (
     <label className={css.box}>
       <span className={css.text}>
@@ -12,7 +24,7 @@ const SearchBox = ({ searchValue, handleChange }) => {
         className={css.input}
         type="text"
         placeholder="Search..."
-        value={searchValue}
+        value={search}
         onChange={handleChange}
       />
     </label>

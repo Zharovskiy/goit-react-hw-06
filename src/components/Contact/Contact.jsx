@@ -1,9 +1,19 @@
+import { deleteContact } from "../../redux/contacts/contactsSlice.js";
+import { useDispatch } from "react-redux";
+
 import { RiContactsLine } from "react-icons/ri";
 import { FiPhone } from "react-icons/fi";
 import { GoTrash } from "react-icons/go";
+
 import css from "./Contact.module.css";
 
-const Contact = ({ id, name, number, onDeleteContact }) => {
+const Contact = ({ id, name, number }) => {
+  const dispatch = useDispatch();
+
+  const onDeleteContact = (contactId) => {
+    dispatch(deleteContact(contactId));
+  };
+
   return (
     <>
       <div className={css.leftBox}>
