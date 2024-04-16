@@ -8,7 +8,7 @@ import { RiContactsLine } from "react-icons/ri";
 import { FiPhone } from "react-icons/fi";
 
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/contactsSlice.js";
+import { addContact } from "../../redux/contactsSlice.js";
 
 import css from "./ContactForm.module.css";
 

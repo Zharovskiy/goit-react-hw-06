@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeFilter } from "../../redux/filters/filtersSlice.js";
-import { selectNameFilter } from "../../redux/filters/filtersSlice.js";
+import { changeFilter } from "../../redux/filtersSlice.js";
+import { selectNameFilter } from "../../redux/filtersSlice.js";
 
 import { TbSearch } from "react-icons/tb";
 
